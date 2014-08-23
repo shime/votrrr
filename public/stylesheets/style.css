@@ -25,3 +25,13 @@ textarea {
   width: 49%;
   height: 100%;
 }
+ul {
+  list-style: none;
+}
+ul li {
+  display: inline;
+}
+img {
+  width: 20%;
+  display: inline;
+}

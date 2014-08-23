@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+  script.
+    $(function(){
+      $('a').on('click', function(){
+        $.ajax('', {
+          type: "PUT",
+          data: {entry: $('.entry').val()},
+          complete: function(){
+            $('ul').append("<li><img src='" + $('.entry').val() + "'></img></li>");
+            $('ul li:last img').effect('highlight');
+            $('input').val('')
+          }
+        })
+      })
+    })
+
+  h1 poll is pending
+  input(class='entry')
+  a(href="javascript:void(0)")
+    | add entry
+  ul 
+   each item in items
+     li
+       img(src="#{item}")
+
+
+ 
+ 
+ 
+ 
+ 
+

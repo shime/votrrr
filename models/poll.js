@@ -15,11 +15,11 @@ module.exports = {
   },
   checkState: function(id){
     var poll = this.find(id)
-    var minutesPassed = (new Date() - new Date(poll.created_at))/(1000 * 60);
+    var hoursPassed = (new Date() - new Date(poll.created_at))/(1000 * 60 * 60);
 
-    if (minutesPassed > 2){
+    if (hoursPassed > 12){
       this.update(id, {state: 'closed'})
-    } else if (minutesPassed > 1){
+    } else if (hoursPassed > 2){
       this.update(id, {state: 'active'})
     }
   }
