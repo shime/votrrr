@@ -9,7 +9,12 @@ block content
           data: {entry: $('.entry').val()},
           complete: function(){
             $('ul').append("<li><img src='" + $('.entry').val() + "'></img></li>");
-            $('ul li:last img').effect('highlight');
+            $('ul li:last img').animate({
+              'background-color': '#f1c40f'
+            }, {duration: 100}).animate({
+              'background-color': 'transparent'
+            }, {duration: 100})
+
             $('input').val('')
           }
         })

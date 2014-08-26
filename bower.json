@@ -4,6 +4,6 @@
   "dependencies": {
     "normalize.css": "~3.0.1",
     "jquery": "~2.1.1",
-    "jquery-ui": "~1.11.1"
+    "jquery-color": "~2.1.2"
   }
 }
