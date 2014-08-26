@@ -1,9 +1,10 @@
 extends ../layout
 
 block content
-  h1 poll is closed
+  span poll is closed
+  h1 #{poll.question}
   ul 
-   each item in items
+   each item in poll.entries
      li
        img(src="#{item}")
  

@@ -16,15 +16,15 @@ block content
       })
     })
 
-  h1 poll is pending
+  span poll is pending
+  h1 #{poll.question}
   input(class='entry')
   a(href="javascript:void(0)")
     | add entry
   ul 
-   each item in items
+   each item in poll.entries
      li
        img(src="#{item}")
-
 
  
  

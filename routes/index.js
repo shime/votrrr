@@ -8,12 +8,16 @@ router.get('/:id', function(req, res) {
   var poll = Poll.find(id)
   if (poll){
     Poll.checkState(id)
-    var entries = poll.entries || [];
-    res.render('poll/' + poll.state, {items: entries})
+    poll.entries = poll.entries || [];
+    res.render(
+      'poll/' + poll.state,
+      {poll: poll}
+    )
   } else {
     Poll.insert({id: id,
                created_at: new Date(),
-               state: 'pending'})
+               state: 'pending',
+               question: ''})
     res.redirect('/' + id)
   }
 })
@@ -30,11 +34,6 @@ router.put('/:id', function(req, res){
 
   Poll.update(id, {entries: entries});
   res.json(200, poll);
-})
-
-router.post('/entry', function(req, res){
-  res.setHeader('Content-Type', 'application/json')
-  res.end(JSON.stringify({id: 'foo'}))
 })
 
 module.exports = router;
